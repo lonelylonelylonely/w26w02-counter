@@ -2,16 +2,39 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>카운터</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>타이머</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>카운터</h1>
-  <div id="count">0</div>
-  <button id="dec">- 1</button>
-  <button id="reset">Reset</button>
-  <button id="inc">+ 1</button>
+  <main class="stage">
+    <div class="dial" id="dial">
+      <svg class="ring" viewBox="0 0 220 220">
+        <circle class="ring-track" cx="110" cy="110" r="100" />
+        <circle class="ring-progress" id="ringProgress" cx="110" cy="110" r="100" />
+      </svg>
+      <div class="readout">
+        <div class="time" id="time">
+          <span id="hh">00</span><span class="colon">:</span><span id="mm">00</span><span class="colon">:</span><span id="ss">00</span>
+        </div>
+        <div class="status" id="status">정지됨</div>
+      </div>
+    </div>
 
-  <script src="script.js"></script>
+    <div class="controls">
+      <button class="btn btn-ghost" id="lapReset" data-mode="lap">랩</button>
+      <button class="btn btn-primary" id="toggle">시작</button>
+      <button class="btn btn-ghost" id="resetBtn">리셋</button>
+    </div>
+
+    <p class="hint">스페이스바로 시작·일시정지, R키로 리셋</p>
+
+    <ul class="laps" id="laps"></ul>
+  </main>
+
+  <script src="scripts.js"></script>
 </body>
 </html>
